@@ -101,4 +101,9 @@ public class Theatre
             System.out.print(seat + " ");
         }
     }
+
+    public List<Seat> getSeats()
+    {
+        return this.seats;
+    }
 }

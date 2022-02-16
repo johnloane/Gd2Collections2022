@@ -27,6 +27,20 @@ public class App
     private static void demoTheatre()
     {
         Theatre townHallTheatre = new Theatre("Town Hall", 20, 30);
+        townHallTheatre.reserveSeatBinary("A01");
+
+        //Collections.sort(townHallTheatre.getSeats());
+
+        //Copy of the seats in the townHallTheatre
+        List<Seat> seatCopy = new ArrayList<>(townHallTheatre.getSeats());
+        seatCopy.get(0).reserve();
+        printList(seatCopy);
+        System.out.println("PRINTING THREATE SEATS");
+        townHallTheatre.printSeats();
+
+        System.out.println("PRINTING COPY SEATS");
+        Collections.reverse(seatCopy);
+        printList(seatCopy);
         //townHallTheatre.printSeats();
         long startTime = System.currentTimeMillis();
         townHallTheatre.reserveSeatLinear("T30");
@@ -67,5 +81,15 @@ public class App
         {
             System.out.println("Hello World");
         }
+    }
+
+    private static void printList(List<Seat> seatList)
+    {
+        for(Seat currentSeat : seatList)
+        {
+            System.out.print(" " + currentSeat.getSeatNumber());
+        }
+        System.out.println();
+        System.out.println("=".repeat(100));
     }
 }
