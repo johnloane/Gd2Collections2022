@@ -19,7 +19,17 @@ public class Theatre
         {
             for(int seatNum = 1; seatNum <= seatsPerRow; seatNum++)
             {
-                Seat seat = new Seat(row + String.format("%02d", seatNum));
+                double price = 12.50;
+
+                if((row < 'D') && (seatNum >= 8 && seatNum <= 23))
+                {
+                    price = 20.00;
+                }
+                else if((row > 'L') || (seatNum < 8 || seatNum > 23))
+                {
+                    price = 10.00;
+                }
+                Seat seat = new Seat(row + String.format("%02d", seatNum), price);
                 seats.add(seat);
             }
         }
@@ -52,7 +62,7 @@ public class Theatre
 
     public boolean reserveSeatBinary(String seatNum)
     {
-        Seat searchSeat = new Seat(seatNum);
+        Seat searchSeat = new Seat(seatNum, 10.00);
         int i = Collections.binarySearch(seats, searchSeat, null);
         if( i < 0)
         {
