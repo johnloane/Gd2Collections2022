@@ -76,19 +76,56 @@ public class PlanetMain
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        
+        //printMoonsOfPlanet("Mars");
 
+        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+        planets.add(pluto);
 
+        printAllPlanets();
 
-
-
-
-
-
-
+        //Add all moons to a Hashset
+//        Set<HeavenlyBody> moons = new HashSet<>();
+//        populateMoons(moons);
+//        printAllMoons(moons);
 
 
 
     }
+
+    private static void printAllPlanets()
+    {
+        for(HeavenlyBody planet : planets)
+        {
+            System.out.println(planet.getName());
+        }
+    }
+
+    private static void printAllMoons(Set<HeavenlyBody> moons)
+    {
+        for(HeavenlyBody moon : moons)
+        {
+            System.out.println("\t" + moon.getName());
+        }
+    }
+
+    private static void populateMoons(Set<HeavenlyBody> moons)
+    {
+        for(HeavenlyBody planet : planets)
+        {
+            moons.addAll(planet.getSatellites());
+        }
+    }
+
+    private static void printMoonsOfPlanet(String planet)
+    {
+        HeavenlyBody planetToPrint = solarSystem.get(planet);
+        System.out.println("Moons of " + planetToPrint.getName());
+        for(HeavenlyBody moon : planetToPrint.getSatellites())
+        {
+            System.out.println("\t" + moon.getName());
+        }
+    }
+
+
 
 }
