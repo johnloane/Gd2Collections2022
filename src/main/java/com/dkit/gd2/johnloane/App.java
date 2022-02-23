@@ -20,9 +20,9 @@ public class App
 //        System.out.println("Total execution time: " + (endTime-startTime));
         //demoTheatre();
         //testPlayer();
-        Player test = new Player("P1");
-        System.out.println(('0'+0));
-        System.out.println(test.hashCode());
+//        Player test = new Player("P1");
+//        System.out.println(('0'+0));
+//        System.out.println(test.hashCode());
 
 
     }
